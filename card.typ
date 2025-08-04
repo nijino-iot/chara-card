@@ -1,7 +1,8 @@
-#import "@preview/zh-kit:0.1.0": *
-#show: doc => setup-base-fonts(doc)
+// #import "@preview/zh-kit:0.1.0": *
+// #show: doc => setup-base-fonts(doc)
 #set text(font: "思源黑體")
 #set block(spacing: 0pt)
+// #set grid(stroke: green)
 
 #let 渐变底色 = gradient.linear(
   rgb("7ecbf1"),
@@ -17,9 +18,9 @@
     columns: 1fr,
     rows: (1cm, 2pt, 2pt, 1fr),
     box(height: 1cm, width: 100%, fill: 渐变底色),
-    block(),
+    box(),
     box(height: 2pt, width: 100%, fill: 渐变底色),
-    block(),
+    box(),
   )
 })
 
@@ -41,19 +42,20 @@
   )
 }
 
-#let 角色卡(name, img, date: none, en: none, logo: none) = {
+#let 角色卡(name, img, date: none, en: none, logo: none, scale: 1) = {
   align(center, grid(
     align: (center, left),
     columns: (3cm, 1fr),
-    rows: (0.6cm, 0.5cm, 1fr, 1fr),
+    rows: (0.5cm, 0.5cm, 1fr, 1fr),
     column-gutter: 10pt,
     row-gutter: 3pt,
-    // stroke: green,
     grid.cell(
       rowspan: 4,
       block(
         radius: 4pt,
         clip: true,
+        fill: white,
+        stroke: 1pt + 渐变底色,
         image(img, width: 3cm, height: 4cm, fit: "cover"),
       ),
     ),
@@ -67,10 +69,10 @@
     ),
     block(image("meis-black.png", height: 0.5cm)),
     grid(
-      columns: 2,
+      columns: (1fr, 1fr),
       rows: 1fr,
       gutter: 1em,
-      align: left,
+      align: (left, center),
       标签盒(
         "NAME",
         block(
@@ -102,7 +104,7 @@
 
 #角色卡(
   "浮波柚葉",
-  "浮波柚叶_立绘.jpeg",
+  "浮波柚叶_立绘.png",
   date: "11/2",
   en: "Ukinami Yuzuha",
   logo: "logo-zzz.png",

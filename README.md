@@ -1,0 +1,3 @@
+```
+typst c card.typ
+```
